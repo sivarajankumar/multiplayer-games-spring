@@ -1,0 +1,76 @@
+@CHARSET "ISO-8859-1";
+
+#content {
+	width: 450px;
+}
+
+/* display score */
+
+#score {
+	width: auto;
+}
+
+#score tr {
+	background-color: white;
+}
+
+#score td {
+	border: none;
+}
+
+td.score {
+	text-align: center;
+}
+
+#current-player p {
+	display: inline-block;
+}
+
+#player-color {
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+}
+
+#spinner {
+	height: 20px;
+}
+
+/* game board */
+
+#board {
+	display: table;
+	border: 1px solid black;
+	margin: 20px auto;
+}
+
+.row {
+	display: table-row;
+}
+
+.cell {
+	display: table-cell;
+	border: 1px solid black;
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+	background-color: green;
+}
+
+.cell.last-move {
+	background-color: red;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.Black {
+	background-color: black;
+}
+
+.White {
+	background-color: white;
+}

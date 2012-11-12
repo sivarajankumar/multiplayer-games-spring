@@ -1,0 +1,73 @@
+<div xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+  
+  	<spring:url value="/resources/styles/blueprint/reset.css" var="blueprint_resetCss" />
+  	
+  	<spring:url value="/resources/javascripts/lib/purl.js" var="jquery_purl" />
+  	<spring:url value="/resources/javascripts/my-lib/push_client.js" var="pushClient" />
+  	<spring:url value="/resources/javascripts/my-lib/angular-components.js" var="angular_Components" />
+  	<spring:url value="/resources/javascripts/my-lib/angular-ui-components.js" var="angular_uiComponents" />
+  	
+  	<spring:url value="/resources/styles/games/games.css" var="gamesCss" />
+  	<spring:url value="/resources/styles/games/reversi.css" var="pageCss" />
+  	<spring:url value="/resources/javascripts/reversi.js" var="pageScripts" />
+  	
+  	<spring:url value="/resources/images/games/spinner.gif" var="spinnerSrc" />
+  	
+  	<link rel="stylesheet" type="text/css" href="${blueprint_resetCss}" />
+  
+	<!-- jQuery -->
+	<link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.0/themes/base/jquery-ui.css" />
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"><!-- jQuery --></script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.0/jquery-ui.min.js"><!-- jQuery UI --></script>
+	
+	<!-- Angular -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.js"><!-- Angular --></script>
+	
+	<!-- Libs --> 
+	<script type="text/javascript" src="${jquery_purl}"><!-- block UI plugin for JQuery --></script>
+	
+	<!-- My Libs -->
+	<script type="text/javascript" src="${pushClient}"><!-- push client to handle server push --></script>
+	<script type="text/javascript" src="${angular_Components}"><!-- common Angular Controller --></script>
+	<script type="text/javascript" src="${angular_uiComponents}"><!-- custom Angular UI components --></script>
+	
+	<link rel="stylesheet" type="text/css" href="${gamesCss}" />
+	<link rel="stylesheet" type="text/css" href="${pageCss}" />
+	<script type="text/javascript">
+		var gameOptions = ${gameOptions};
+	</script>
+	<script type="text/javascript" src="${pageScripts}"><!-- scripts that make this page work --></script>
+	
+	<div id="content" ng-app="reversi" ng-controller="ReversiController">
+	
+		<h1>Reversi</h1>
+	
+		<table id="score">
+			<tr>
+				<td>Black:</td>
+				<td colspan="2" class="score">{{players[0].score}}</td>
+			</tr>
+			<tr>
+				<td>White:</td>
+				<td colspan="2" class="score">{{players[1].score}}</td>
+			</tr>
+		</table>
+		
+		<div id="current-player">
+			<p>Current player: <span class="name">{{currentPlayer.name}}</span></p>
+			<div id="player-color" class="{{currentPlayer.name}}"></div>
+			<img id="spinner" src="${spinnerSrc}" ng-hide="players[currentPlayerIndex] == player" />
+		</div>
+		
+		<div id="board">
+			<div class="row" ng-repeat="row in board">
+				<div class="cell" ng-class="{ 'last-move' : cell == opponentsLastMove }" ng-repeat="cell in row" ng-click="placePiece($parent.$index, $index)" >
+					<div class="circle {{cell.player.name}}" ng-show="cell.player"></div>
+				</div>
+			</div>
+		</div>
+		
+		<game-dialogs></game-dialogs>
+	</div>
+  
+</div>

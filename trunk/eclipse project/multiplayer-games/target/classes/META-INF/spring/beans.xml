@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<bean id="gameRepository" class="games.model.persistence.mock.GameRepositoryMock"></bean>
+	
+	<bean id="gameRegistry" class="games.registry.GameRegistry" scope="singleton"></bean>
+	
+	<bean id="subscriberRegistry" class="games.web.comet.SubscriberRegistry" scope="singleton"></bean>
+	
+	<bean id="gameListUpdater" class="games.web.comet.legacy.GameListUpdater"></bean>
+	
+	<bean id="channelUpdater" class="games.web.comet.legacy.ChannelUpdater"></bean>
+
+</beans>

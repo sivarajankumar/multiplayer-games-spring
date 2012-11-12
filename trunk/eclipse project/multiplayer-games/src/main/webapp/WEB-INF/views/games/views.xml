@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="game" name="games/lobby" >
+    	<put-attribute name="body" value="/WEB-INF/views/games/lobby.jspx"/>
+    </definition>
+    
+    <definition extends="game" name="games/board/x-0" >
+    	<put-attribute name="body" value="/WEB-INF/views/games/x-0.jspx"/>
+    </definition>
+    
+    <definition extends="game" name="games/board/reversi" >
+    	<put-attribute name="body" value="/WEB-INF/views/games/reversi.jspx"/>
+    </definition>
+    
+    <definition extends="game" name="games/board/jungle-chess" >
+    	<put-attribute name="body" value="/WEB-INF/views/games/jungle-chess.jspx"/>
+    </definition>
+</tiles-definitions>

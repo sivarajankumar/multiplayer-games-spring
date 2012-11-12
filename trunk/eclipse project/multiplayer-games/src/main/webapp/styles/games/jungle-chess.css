@@ -1,0 +1,135 @@
+@CHARSET "ISO-8859-1";
+
+#content {
+	width: 750px;
+}
+
+#current-player p {
+	display: inline-block;
+}
+
+#player-color {
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+}
+
+#spinner {
+	height: 20px;
+}
+/* player colors */
+#playerColors div {
+	width: 40px;
+	height: 20px;
+}
+
+div.player1 {
+	background-color: darkblue;
+}
+
+div.player2 {
+	background-color: magenta;
+}
+
+img.player1 {
+	border: 5px solid darkblue;
+}
+
+img.player2 {
+	border: 5px solid magenta;
+}
+
+/* game board */
+#board {
+	display: table;
+	border: 1px solid black;
+	border-collapse: collapse;
+	margin: 20px auto;
+}
+
+.row {
+	display: table-row;
+}
+
+.cell {
+	display: table-cell;
+	height: 100px;
+	width: 100px;
+	cursor: pointer;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.contentImage {
+	width: 90px;
+	height: 90px;
+/* 	display: inline-block;
+ */	
+	position: relative;
+	z-index: 1;
+}
+
+.power-level {
+	z-index: 1;
+	position: absolute;
+	left: 50%;
+	bottom: 5px;
+	color: red;
+	font-weight: bold; 
+}
+
+/* cell backgrounds */
+
+.grass {
+	background-image: url("../../images/games/jungle-chess/backgrounds/grass.png");
+}
+
+.water {
+	background-image: url("../../images/games/jungle-chess/backgrounds/water.png");
+}
+
+.trap {
+	background-image: url("../../images/games/jungle-chess/backgrounds/trap.png");
+}
+
+.den {
+	background-image: url("../../images/games/jungle-chess/backgrounds/den.png");
+}
+
+/* highlighted cells */
+
+.cell.highlighted img {
+	border: 1px solid orange;
+}
+
+.cell-overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0.5;
+	left: 0px;
+	top: 0px;
+	background-color: grey;
+}
+
+.cell-wrapper {
+	position: relative;
+	width: 100px;
+	height: 100px;
+}
+
+.last-move {
+	background-color: firebrick;
+}
+
+.move-shadow {
+	background-color: grey;
+}
+
+.animal-selected {
+	background-color: silver;
+}
+
+.attack-shadow {
+	background-color: red;
+}
