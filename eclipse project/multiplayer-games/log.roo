@@ -1,0 +1,28 @@
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-07 17:13:25
+project --topLevelPackage games --projectName multiplayer-games --java 6 --packaging WAR
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-07 17:13:38
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-07 17:44:56
+jpa setup --database HYPERSONIC_IN_MEMORY --provider HIBERNATE 
+entity jpa --class games.model.dummy.Dummy
+field string --fieldName name
+web mvc setup
+web mvc scaffold --class ~.web.control.DummyController --backingType ~.model.dummy.Dummy
+security setup
+web mvc controller --class ~.web.control.LobbyController --preferredMapping /lobby 
+
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-07 18:47:34
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-07 18:47:44
+web mvc controller --class ~.web.control.LobbyController --preferredMapping /lobby
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-07 19:01:37
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-08 16:59:58
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-08 17:41:05
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-09 15:26:49
+help
+help
+web mvc controller --class ~.web.control.CreateGame
+web mvc controller --class ~.web.control.CometController
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-09 17:29:06
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-12 11:12:05
+// [failed] web mvc controller --class ~.web.control.BoardGamesController --preferredMapping /games/board/*
+web mvc controller --class ~.web.control.BoardGamesController --preferredMapping /games/board/
+logging setup --package games --level DEBUG

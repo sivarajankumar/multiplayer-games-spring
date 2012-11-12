@@ -1,0 +1,78 @@
+<div xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+  
+  	<spring:url value="/resources/styles/blueprint/reset.css" var="blueprint_resetCss" />
+  	
+  	<spring:url value="/resources/javascripts/lib/jquery.blockUI.js" var="jquery_blockUI" />
+  	<spring:url value="/resources/javascripts/my-lib/push_client.js" var="pushClient" />
+  	<spring:url value="/resources/javascripts/my-lib/angular-ui-components.js" var="angular_uiComponents" />
+  	
+  	<spring:url value="/resources/styles/games/games.css" var="gamesCss" />
+  	<spring:url value="/resources/styles/games/lobby.css" var="pageCss" />
+  	<spring:url value="/resources/javascripts/lobby.js" var="pageScripts" />
+  	
+  	<link rel="stylesheet" type="text/css" href="${blueprint_resetCss}" />
+  
+	<!-- jQuery -->
+	<link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.0/themes/base/jquery-ui.css" />
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"><!-- jQuery --></script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.0/jquery-ui.min.js"><!-- jQuery UI --></script>
+	
+	<!-- DataTables -->
+	<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css" />
+	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"><!-- DataTables --></script>
+	
+	<!-- Angular -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.js"><!-- Angular --></script>
+	
+	<!-- Libs --> 
+	<script type="text/javascript" src="${jquery_blockUI}"><!-- block UI plugin for JQuery --></script>
+	
+	<!-- My Libs -->
+	<script type="text/javascript" src="${pushClient}"><!-- push client to handle server push --></script>
+	<script type="text/javascript" src="${angular_uiComponents}"><!-- custom Angular UI components --></script>
+	
+	<link rel="stylesheet" type="text/css" href="${gamesCss}" />
+	<link rel="stylesheet" type="text/css" href="${pageCss}" />
+	<script type="text/javascript" src="${pageScripts}"><!-- scripts that make this page work --></script>
+	
+	<script type="text/javascript">
+			var availableGames = ${games};
+			var games = ${openGames};
+			var loggedInUser = '${pageContext.request.userPrincipal.name}';
+	</script>
+	
+	<div id="content" ng-app="lobby" ng-controller="LobbyController">
+
+		<div id="games-container">
+			<p>Join a game:</p>
+			<datatable ao-columns="columns" aa-data="games" post-processor="assignEvents(dataTable)"><!-- custom tag --></datatable>
+			<p id="game-description">
+				{{selectedOpenGame.gameName}} <br /> {{selectedOpenGame.gameDescription}}
+			</p>
+		</div>
+
+		<div id="create-game-container">
+			<form id="create-game-form" ng-submit="createGame()">
+				<label for="game-selector">Create a game of:</label> 
+				<select id="game-selector" ng-model="selectedGame" ng-options="g.name for g in availableGames"></select> 
+				<input id="create-game-submit" type="submit" value="Create!" />
+			</form>
+			<div id="create-game-dialog" class="game-dialog">
+				<p>Start playing {{selectedGame.name}} with the following rules:</p>
+				<ul class="game-option-list">
+					<li ng-repeat="gameOption in selectedGame.options | filter:{type : 'enumeration'}">
+						<label for="{{gameOption.name}}-select">{{gameOption.label }}</label> 
+						<select id="{{gameOption.name}}-select" ng-model="createdGame.gameOptions[gameOption.name]" 
+							ng-options="value for value in gameOption.values"><!-- bogus content --></select>
+					</li>
+					<li ng-repeat="gameOption in selectedGame.options | filter:{type : 'boolean'}">
+						<label for="{{gameOption.name}}-checkbox">{{gameOption.label }}</label> 
+						<input id="{{gameOption.name}}-checkbox" type="checkbox" ng-model="createdGame.gameOptions[gameOption.name]" />
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+  
+</div>

@@ -1,0 +1,41 @@
+@CHARSET "ISO-8859-1";
+
+#content {
+	width: 550px;
+}
+
+p#next-move {
+	font-size: 20px;
+}
+
+p#next-move img {
+	height: 20px;
+}
+
+/* game board */
+
+#board {
+	display: table;
+	border: 1px solid black;
+	border-spacing: 2px;
+	margin: 20px auto;
+}
+
+.row {
+	display: table-row;
+}
+
+.cell {
+	display: table-cell;
+	border: 1px solid black;
+	height: 100px;
+	width: 100px;
+	cursor: pointer;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 50px;
+}
+
+.cell.last-move {
+	color: red;
+}

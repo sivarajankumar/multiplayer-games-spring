@@ -1,0 +1,12 @@
+<aspectj>
+<aspects>
+<aspect name="games.model.dummy.Dummy_Roo_JavaBean"/>
+<aspect name="games.web.control.ApplicationConversionServiceFactoryBean_Roo_ConversionService"/>
+<aspect name="games.model.dummy.Dummy_Roo_ToString"/>
+<aspect name="games.model.dummy.Dummy_Roo_Configurable"/>
+<aspect name="games.model.dummy.Dummy_Roo_Jpa_Entity"/>
+<aspect name="games.web.control.dummy.DummyController_Roo_Controller"/>
+<aspect name="games.model.dummy.Dummy_Roo_Jpa_ActiveRecord"/>
+</aspects>
+</aspectj>
+

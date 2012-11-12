@@ -1,0 +1,41 @@
+@CHARSET "ISO-8859-1";
+
+#games-container {
+	margin-bottom: 10px;
+}
+
+.dataTables_wrapper {
+	width: 70%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.dataTables_length {
+	white-space: nowrap;
+}
+
+.dataTables_filter label {
+	white-space: nowrap;
+	width: auto;
+}
+
+.dataTables_wrapper th {
+	color: black;
+}
+
+tr {
+	cursor: pointer;
+}
+
+#game-description {
+	width: 30%;
+	display: inline-block;
+}
+
+.join-game-button {
+	
+}
+
+.game-option-list {
+	list-style: none;
+}
