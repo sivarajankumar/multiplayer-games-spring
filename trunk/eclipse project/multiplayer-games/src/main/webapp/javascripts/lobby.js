@@ -1,5 +1,7 @@
 angular.module('lobby', [ 'uiComponents' ]);
 
+// TODO display starting parameters when clicking on game
+
 function LobbyController($scope, $http) {
 	
 	var controller = this;
